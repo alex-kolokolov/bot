@@ -14,7 +14,6 @@ def dynamic_data_filter(data):
 
 @app.on_message(filters.command("type", prefixes='.') & filters.me)
 def type(_, msg):
-    print(msg)
     orig_text = msg.text.split(".type ", maxsplit=1)[1]
     text = orig_text
     tbp = ''
@@ -27,7 +26,6 @@ def type(_, msg):
 
             tbp = tbp + str(text)[0]
             text = text[1:]
-            print(tbp)
 
             app.edit_message_text(chat_id, message_id, f'<b>{tbp}</b>', parse_mode='html')
             sleep(0.15)
